@@ -8,8 +8,6 @@ import (
 	"path/filepath"
 )
 
-var sampleData = []byte("This is some sample data in a file")
-
 func main() {
 	forAlphabet(func(l1 string) {
 		forAlphabet(func(l2 string) {
@@ -22,7 +20,7 @@ func main() {
 			forAlphabet(func(l3 string) {
 				fileP := filepath.Join(dirP, l3) // a/a/a a/a/b /a/a/c ...
 
-				err := ioutil.WriteFile(fileP, sampleData, os.ModePerm)
+				err := ioutil.WriteFile(fileP, []byte(fileP), os.ModePerm)
 				if err != nil {
 					log.Fatal(err)
 				}
